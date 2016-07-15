@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+        *
+        {
+        	margin:0 0;
+        	padding:0 0;
+        	text-decoration: none;
+        	list-style-type: none;
+        }
+        #all
+        {
+        	width:100%;
+        	height: 700px;
+        }
+        #top
+        {
+        	width:1302px;
+        	height: 620px;
+        	margin:40px auto;
+        }
+        #top_left
+        {
+        	width:945px;
+        	height:535px;
+        	float: left;
+        	position: relative;
+        	margin:0 30px;
+            white-space:nowrap;    /*去掉a标签中间的空白字符*/
+            overflow: hidden;
+        }
+        #top_left li
+        {
+        	height:535px;
+        	float:left;
+        	-webkit-transition:width 0.3s;  /*他的容器也要加过渡，要不然，会造成闪烁*/
+        	-moz-transition:width 0.3s;
+        }
+        #top_left h1
+        {
+        	width:400px;
+        	margin:0px 30px;
+        	color:white;
+        	font-family: "futura-pt",Arial,Helvetica,sans-serif;
+        	font-size: 25px;
+        	font-weight: 50;
+        	position:absolute;
+        	top: -38px;
+        	z-index: 1;
+        	-webkit-transition:top 1s;
+        	-moz-transition:top 1s;
+        }
+        #top_left a
+        {
+        	display: inline-block;
+        	height:535px;
+        	background-position:center center;
+        	background-size:cover;
+        	-webkit-filter: grayscale(100%); 
+        	-moz-filter:grayscale(100%);
+        	-webkit-transition:width 0.3s;
+        	-moz-transition:width 0.3s;
+        }
+        #top_left a:hover
+        {
+        	-webkit-filter: grayscale(0); 
+        }
+	</style>
+</head>
+<body>
+	<div id="all">
+		<div id="top" class="mark">
+			<div id="top_left">
+				<ul>
+					<li><h1>1</h1><a href="#" style="background-image:url(http://unsanforized.3sixteen.com/images/introduction.jpg);"></a></li>
+					<li><h1>2</h1><a href="#" style="background-image:url(http://unsanforized.3sixteen.com/images/why-unsanforized.jpg);"></a></li>
+					<li><h1>3</h1><a href="#" style="background-image:url(http://unsanforized.3sixteen.com/images/kibata.jpg);"></a></li>
+					<li><h1>4</h1><a href="#" style="background-image:url(http://unsanforized.3sixteen.com/images/sizing.jpg);"></a></li>
+					<li><h1>5</h1><a href="#" style="background-image:url(http://unsanforized.3sixteen.com/images/soaking-1.jpg);"></a></li>
+					<li><h1>6</h1><a href="#" style="background-image:url(http://unsanforized.3sixteen.com/images/drying.jpg);"></a></li>
+					<li><h1>7</h1><a href="#" style="background-image:url(http://unsanforized.3sixteen.com/images/post-soak-cropped.jpg);"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+       window.onload=function(){
+       	   var topLeft=document.getElementById("top_left");
+	       //获得容器的宽度
+	       var topLeftWidth=parseInt(topLeft.offsetWidth,10);
+	       var li=topLeft.getElementsByTagName("li");
+	       var a=topLeft.getElementsByTagName("a");
+	       //初始化图片和宽度
+	       function Init()
+	       {
+               for(var i=0;i<a.length;i++)
+              {
+           	   li[i].style.width=Math.floor(topLeftWidth/7)+"px";
+                a[i].style.width=Math.floor(topLeftWidth/7)+"px";
+              }
+           }
+           Init();
+           //移上去后的宽度
+    var hoverWidth=topLeftWidth/2;
+    //其他同级元素的宽度
+    var tempWidth=hoverWidth/6-3;
+
+     for(var i=0;i<a.length;i++)
+    {
+    	(function(i){
+        var hTitle=li[i].getElementsByTagName("h1")[0];
+        var fDescription=li[i].getElementsByTagName("div")[0];
+    	  li[i].onmouseover=function()
+    	  {
+              //初始化
+    	  	    Init();
+              //设置移上去后的宽度
+    	  	    li[i].style.width=hoverWidth+"px";
+              a[i].style.width=hoverWidth+"px";
+              for(var j=0;j<a.length;j++)
+              {
+              	if(j!=i)
+              	{
+                  //移上去后其他图片的宽度
+              		li[j].style.width=tempWidth+"px";
+              		a[j].style.width=tempWidth+"px";
+              	}
+              }
+              //图片上部分
+              hTitle.style.top="15px";
+              hTitle.style.borderTop="1px solid white"
+    	  }
+    	  li[i].onmouseout=function()
+    	  {
+    	  	Init();
+          //图片上部分
+          hTitle.style.top="-38px";
+          hTitle.style.borderTop="0px solid white";
+    	  }
+    	})(i);
+    }
+              }
+	</script>
+</body>
+</html>
