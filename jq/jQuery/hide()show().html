@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("button").click(function(){
+				$("p").toggle(1000);
+			})
+		})
+	</script>
+</head>
+<body>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<button id="button">Click</button>
+</body>
+</html>
+<!-- 基础语法是：$(selector).action()
+美元符号定义 jQuery
+选择符（selector）“查询”和“查找” HTML 元素
+jQuery 的 action() 执行对元素的操作 -->

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".button").click(function(){
+				$(".text").slideToggle("slow");
+			})
+		})
+	</script>
+	<style type="text/css">
+		.text{
+			text-align: center;
+			width: 120px;
+			margin: 0;
+			padding: 5px;
+			border: solid 1px black;
+		}
+		.button{
+			text-align: center;
+			border: solid 1px black;
+		}
+	</style>
+</head>
+<body>
+<div class="text">
+	<p>666</p>
+	<p>666</p>
+	<p>666</p>
+	<p>666</p>
+</div>
+<button class="button">点击</button>
+</body>
+</html>

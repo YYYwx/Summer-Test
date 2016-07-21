@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(button).click(function(){
+				 $("#one").fadeToggle();
+  				 $("#two").fadeToggle("slow");
+  				 $("#three").fadeToggle(3000);
+			})
+		})
+	</script>
+	<style type="text/css">
+		#one{
+			width: 50px;
+			height: 50px;
+			background-color: blue;
+		}
+		#two{
+			width: 50px;
+			height: 50px;
+			background-color: red;
+		}
+		#three{
+			width: 50px;
+			height: 50px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+<div id="one"></div>
+<div id="two"></div>
+<div id="three"></div>
+<button id="button">淡入淡出</button>
+</body>
+</html>
+<!-- 改变透明度的淡入淡出
+$("button").click(function(){
+  $("#div1").fadeTo("slow",0.15);
+  $("#div2").fadeTo("slow",0.4);
+  $("#div3").fadeTo("slow",0.7);
+}); -->
